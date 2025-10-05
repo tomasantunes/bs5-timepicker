@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BS5 TimePicker</title>
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="../src/bs5-timepicker.css" rel="stylesheet">
+  <style>body{padding:2rem;}</style>
+</head>
+<body>
+  <div class="container">
+    <h3>BS5 TimePicker</h3>
+
+    <form id="demoForm">
+      <div class="mb-3">
+        <label class="form-label">Select time</label>
+        <div id="tp1" class="d-inline-block"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">12-hour variant</label>
+        <div id="tp12" class="d-inline-block"></div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <hr>
+    <pre id="out"></pre>
+  </div>
+
+  <!-- Include library -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../src/bs5-timepicker.js"></script>
+  <script>
+    // instantiate a 24-hour time picker
+    const tp1 = new TimePicker('#tp1', { format: '24', minuteStep: 5 });
+
+    // instantiate a 12-hour picker
+    const tp12 = new TimePicker('#tp12', { format: '12' });
+
+    // listen for changes
+    tp1.onChange((v) => document.getElementById('out').textContent = '24h: ' + tp1.toString());
+    tp12.onChange((v) => document.getElementById('out').textContent = '12h: ' + tp12.toString());
+
+    document.getElementById('demoForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Time1: ' + tp1.toString() + '\nTime12: ' + tp12.toString());
+    });
+  </script>
+</body>
+</html>
