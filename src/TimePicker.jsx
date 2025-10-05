@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './timepicker.css';
+import './bs5-timepicker.css';
 
 export default function TimePicker({
   format = '24',
