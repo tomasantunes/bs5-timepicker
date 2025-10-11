@@ -255,17 +255,17 @@
 
     setActive(isActive) {
       if (isActive === false) {
-        // set prop attribute disabled to true
-        this.hourInput.disabled = true;
-        this.minuteInput.disabled = true;
-        if (this.amBtn) this.amBtn.disabled = true;
-        if (this.pmBtn) this.pmBtn.disabled = true;
+        console.log('Disabling TimePicker inputs');
+        console.log('hourInput:', this.hourInput);
+        this.hourInput.setAttribute('disabled', '');
+        this.minuteInput.setAttribute('disabled', '');
+        if (this.amBtn) this.amBtn.setAttribute('disabled', '');
+        if (this.pmBtn) this.pmBtn.setAttribute('disabled', '');
       } else {
-        // set prop attribute disabled to false
-        this.hourInput.disabled = false;
-        this.minuteInput.disabled = false;
-        if (this.amBtn) this.amBtn.disabled = false;
-        if (this.pmBtn) this.pmBtn.disabled = false;
+        this.hourInput.removeAttribute('disabled');
+        this.minuteInput.removeAttribute('disabled');
+        if (this.amBtn) this.amBtn.removeAttribute('disabled');
+        if (this.pmBtn) this.pmBtn.removeAttribute('disabled');
       }
     }
   }
