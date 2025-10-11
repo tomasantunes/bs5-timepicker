@@ -252,6 +252,22 @@
       if (this.options.format === '12') return `${hh}:${mm} ${v.ampm}`;
       return `${hh}:${mm}`;
     }
+
+    setActive(isActive) {
+      if (isActive === false) {
+        // set prop attribute disabled to true
+        this.hourInput.disabled = true;
+        this.minuteInput.disabled = true;
+        if (this.amBtn) this.amBtn.disabled = true;
+        if (this.pmBtn) this.pmBtn.disabled = true;
+      } else {
+        // set prop attribute disabled to false
+        this.hourInput.disabled = false;
+        this.minuteInput.disabled = false;
+        if (this.amBtn) this.amBtn.disabled = false;
+        if (this.pmBtn) this.pmBtn.disabled = false;
+      }
+    }
   }
 
   // expose globally
